@@ -1,0 +1,13 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>fix the auth tests</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"Running the tests."},{"type":"tool_use","id":"call_1","name":"Shell","input":{"command":"npm test"}}]}}
+{"role":"user","message":{"content":[{"type":"tool_result","tool_use_id":"call_1","content":"FAIL src/auth.test.ts: Authorization: Bearer SECRETTOKEN123","is_error":true}]}}
+{"role":"assistant","message":{"content":[{"type":"tool_use","id":"call_2","name":"StrReplace","input":{"path":"{{ROOT}}/src/auth.ts","old_string":"a","new_string":"b"}}]}}
+{"role":"user","message":{"content":[{"type":"tool_result","tool_use_id":"call_2","content":"ok"}]}}
+{"role":"assistant","message":{"content":[{"type":"tool_use","id":"call_3","name":"Write","input":{"path":"{{ROOT}}/src/refused.ts","contents":"x"}}]}}
+{"role":"user","message":{"content":[{"type":"tool_result","tool_use_id":"call_3","content":"permission denied","is_error":true}]}}
+{"role":"assistant","message":{"content":[{"type":"tool_use","id":"call_4","name":"Shell","input":{"command":"npm test"}}]}}
+{"role":"user","message":{"content":[{"type":"tool_result","tool_use_id":"call_4","content":"PASS src/auth.test.ts"}]}}
+{"role":"assistant","message":{"content":[{"type":"tool_use","id":"call_5","name":"Shell","input":{"command":"make test-unknown"}}]}}
+{"role":"assistant","message":{"content":[{"type":"tool_use","id":"call_6","name":"Shell","input":{"command":"ls -la"}}]}}
+{"role":"user","message":{"content":[{"type":"tool_result","tool_use_id":"call_6","content":"total 0"}]}}
+{"role":"assistant","message":{"content":[{"type":"tool_use","id":"call_7","name":"Sh

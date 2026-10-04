@@ -1,0 +1,4 @@
+{"role":"assistant","message":{"content":[{"type":"tool_use","id":"call_x1","name":"Write","input":{"path":"{{ELSEWHERE}}/main.go","contents":"package main"}}]}}
+{"role":"user","message":{"content":[{"type":"tool_result","tool_use_id":"call_x1","content":"ok"}]}}
+{"role":"assistant","message":{"content":[{"type":"tool_use","id":"call_x2","name":"Shell","input":{"command":"make test-elsewhere"}}]}}
+{"role":"user","message":{"content":[{"type":"tool_result","tool_use_id":"call_x2","content":"ok"}]}}
