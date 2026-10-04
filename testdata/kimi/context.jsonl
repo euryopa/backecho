@@ -1,0 +1,11 @@
+{"role":"_system_prompt","content":"You are Kimi"}
+{"role":"user","content":"fix tests"}
+{"role":"assistant","content":[{"type":"text","text":"running"}],"tool_calls":[{"type":"function","id":"Shell:0","function":{"name":"Shell","arguments":"{\"command\": \"npm test\"}"}}]}
+{"role":"tool","content":[{"type":"text","text":"<system>ERROR: Command failed with exit code: 1.</system>"},{"type":"text","text":"FAIL auth token=SECRETTOKEN123\n"}],"tool_call_id":"Shell:0"}
+{"role":"assistant","content":[],"tool_calls":[{"type":"function","id":"WriteFile:1","function":{"name":"WriteFile","arguments":"{\"path\": \"{{ROOT}}/src/auth.ts\", \"content\": \"x\"}"}}]}
+{"role":"tool","content":[{"type":"text","text":"<system>File successfully overwritten.</system>"}],"tool_call_id":"WriteFile:1"}
+{"role":"assistant","content":[],"tool_calls":[{"type":"function","id":"Shell:2","function":{"name":"Shell","arguments":"{\"command\": \"npm test\"}"}},{"type":"function","id":"Shell:3","function":{"name":"Shell","arguments":"{\"command\": \"make test-unknown\"}"}}]}
+{"role":"tool","content":[{"type":"text","text":"<system>Command executed successfully.</system>"},{"type":"text","text":"PASS auth\n"}],"tool_call_id":"Shell:2"}
+{"role":"tool","content":[{"type":"text","text":"<system>ERROR: Command killed by timeout (60s)</system>"}],"tool_call_id":"Shell:3"}
+{"role":"_checkpoint","id":0}
+{"role":"assi

@@ -1,0 +1,20 @@
+{"type":"metadata","protocol_version":"1.5","created_at":1791100800000}
+{"type":"config.update","agentId":"main","profileName":"agent","systemPrompt":"You are Kimi.","environmentDisclosure":{"cwd":"{{ROOT}}"},"time":1791100800000}
+{"type":"turn.prompt","input":[{"type":"text","text":"fix vet"}],"origin":{"kind":"user"},"time":1791100801000}
+{"type":"context.append_message","agentId":"main","message":{"role":"user","content":[{"type":"text","text":"fix vet"}],"toolCalls":[]},"time":1791100801000}
+{"type":"context.append_loop_event","agentId":"main","event":{"type":"step.begin","uuid":"s1","turnId":"t1","step":0},"time":1791100802000}
+{"type":"context.append_loop_event","agentId":"main","event":{"type":"tool.call","stepUuid":"s1","toolCallId":"tool_1","name":"Bash","args":{"command":"go vet ./..."}},"time":1791100805000}
+{"type":"context.append_loop_event","agentId":"main","event":{"type":"tool.result","toolCallId":"tool_1","result":{"output":"# example/auth\nauth/auth.go:12:2: Authorization: Bearer SECRETTOKEN123 declared and not used\nCommand failed with exit code: 1.","isError":true,"durationMs":900}},"time":1791100810000}
+{"type":"context.append_loop_event","agentId":"main","event":{"type":"tool.call","stepUuid":"s1","toolCallId":"tool_2","name":"Edit","args":{"path":"{{ROOT}}/auth/auth.go","old_string":"a","new_string":"b"}},"time":1791100860000}
+{"type":"context.append_loop_event","agentId":"main","event":{"type":"tool.result","toolCallId":"tool_2","result":{"output":"Edited {{ROOT}}/auth/auth.go","isError":false,"durationMs":900}},"time":1791100861000}
+{"type":"context.append_loop_event","agentId":"main","event":{"type":"tool.call","stepUuid":"s1","toolCallId":"tool_3","name":"Write","args":{"path":"{{ROOT}}/auth/denied.go","content":"x"}},"time":1791100862000}
+{"type":"context.append_loop_event","agentId":"main","event":{"type":"tool.result","toolCallId":"tool_3","result":{"output":"Permission denied","isError":true,"durationMs":900}},"time":1791100863000}
+{"type":"context.append_loop_event","agentId":"main","event":{"type":"tool.call","stepUuid":"s1","toolCallId":"tool_4","name":"Bash","args":{"command":"go vet ./..."}},"time":1791100920000}
+{"type":"context.append_loop_event","agentId":"main","event":{"type":"tool.result","toolCallId":"tool_4","result":{"output":"Command executed successfully.","isError":false,"durationMs":900}},"time":1791100925000}
+{"type":"context.append_loop_event","agentId":"main","event":{"type":"tool.call","stepUuid":"s1","toolCallId":"tool_5","name":"Bash","args":{"command":"make test-unknown"}},"time":1791100980000}
+{"type":"context.append_loop_event","agentId":"main","event":{"type":"tool.result","toolCallId":"tool_5","result":{"output":"building...\nok","isError":false,"durationMs":900}},"time":1791100985000}
+{"type":"context.append_loop_event","agentId":"main","event":{"type":"tool.call","stepUuid":"s1","toolCallId":"tool_6","name":"Bash","args":{"command":"ls -la"}},"time":1791100990000}
+{"type":"context.append_loop_event","agentId":"main","event":{"type":"tool.result","toolCallId":"tool_6","result":{"output":"Command executed successfully.","isError":false,"durationMs":900}},"time":1791100991000}
+{"type":"context.append_loop_event","agentId":"main","event":{"type":"tool.call","stepUuid":"s1","toolCallId":"tool_7","name":"Bash","args":{"command":"make test-elsewhere","cwd":"{{ELSEWHERE}}"}},"time":1791101000000}
+{"type":"context.append_loop_event","agentId":"main","event":{"type":"tool.result","toolCallId":"tool_7","result":{"output":"Command executed successfully.","isError":false,"durationMs":900}},"time":1791101001000}
+{"type":"context.append_loop_event","agentId":"main","event":{"type":"tool.ca
