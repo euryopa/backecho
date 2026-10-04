@@ -1,0 +1,8 @@
+{"sessionId": "5b1f2c3d-0000-4000-8000-000000000002", "title": "cn session", "workspaceDirectory": "{{ROOT}}", "history": [
+  {"message": {"role": "assistant", "content": "", "toolCalls": [{"id": "c1", "type": "function", "function": {"name": "Bash", "arguments": "{\"command\":\"go test ./...\"}"}}]}, "contextItems": [],
+   "toolCallStates": [{"toolCallId": "c1", "status": "errored", "parsedArgs": {"command": "go test ./..."}, "toolCall": {"id": "c1", "type": "function", "function": {"name": "Bash", "arguments": "{\"command\":\"go test ./...\"}"}},
+     "output": [{"content": "Error executing tool Bash: Error (exit code 2): token=SECRETTOKEN123 undefined", "name": "Tool Result", "description": "Tool execution result"}]}]},
+  {"message": {"role": "assistant", "content": "", "toolCalls": [{"id": "c2", "type": "function", "function": {"name": "Edit", "arguments": "{}"}}]}, "contextItems": [],
+   "toolCallStates": [{"toolCallId": "c2", "status": "done", "parsedArgs": {"file_path": "{{ROOT}}/pkg/auth.go", "old_string": "a", "new_string": "b"}, "toolCall": {"id": "c2", "type": "function", "function": {"name": "Edit", "arguments": "{}"}},
+     "output": [{"content": "ok", "name": "Tool Result", "description": "Tool execution result"}]}]}
+]}

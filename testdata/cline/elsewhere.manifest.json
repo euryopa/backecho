@@ -1,0 +1,1 @@
+{"version": 1, "session_id": "1760000000001_def34", "source": "cli", "pid": 1, "started_at": "2026-10-04T15:00:00.000Z", "status": "completed", "interactive": false, "provider": "anthropic", "model": "m", "cwd": "{{ELSEWHERE}}", "workspace_root": "{{ELSEWHERE}}", "enable_tools": true, "enable_spawn": false, "enable_teams": false}

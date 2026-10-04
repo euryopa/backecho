@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "session_id": "1760000000000_abc12",
+  "source": "cli",
+  "pid": 4242,
+  "started_at": "2026-10-04T14:00:00.000Z",
+  "status": "completed",
+  "interactive": true,
+  "provider": "anthropic",
+  "model": "claude-sonnet-4-5",
+  "cwd": "{{ROOT}}",
+  "workspace_root": "{{ROOT}}",
+  "enable_tools": true,
+  "enable_spawn": false,
+  "enable_teams": false,
+  "messages_path": "{{HOME}}/.cline/data/sessions/1760000000000_abc12/1760000000000_abc12.messages.json"
+}

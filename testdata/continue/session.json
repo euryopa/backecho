@@ -1,0 +1,36 @@
+{
+  "sessionId": "5b1f2c3d-0000-4000-8000-000000000001",
+  "title": "Fix auth tests",
+  "workspaceDirectory": "{{ROOT_URI}}",
+  "mode": "agent",
+  "history": [
+    {"message": {"role": "user", "content": "fix the failing auth test"}, "contextItems": []},
+    {"message": {"role": "assistant", "content": "", "toolCalls": [{"id": "call_1", "type": "function", "function": {"name": "builtin_run_terminal_command", "arguments": "{\"command\":\"npm test\"}"}}]},
+     "contextItems": [],
+     "toolCallStates": [{"toolCallId": "call_1", "status": "done", "parsedArgs": {"command": "npm test"},
+       "toolCall": {"id": "call_1", "type": "function", "function": {"name": "builtin_run_terminal_command", "arguments": "{\"command\":\"npm test\"}"}},
+       "output": [{"name": "Terminal", "description": "Terminal command output", "content": "FAIL src/auth.test.ts\nAuthorization: Bearer SECRETTOKEN123 rejected", "status": "Command failed with exit code 1"}]}]},
+    {"message": {"role": "tool", "content": "FAIL src/auth.test.ts", "toolCallId": "call_1"}, "contextItems": []},
+    {"message": {"role": "assistant", "content": "", "toolCalls": [{"id": "call_2", "type": "function", "function": {"name": "builtin_single_find_and_replace", "arguments": "{\"filepath\":\"src/auth.ts\",\"old_string\":\"token\",\"new_string\":\"authToken\"}"}}]},
+     "contextItems": [],
+     "toolCallStates": [{"toolCallId": "call_2", "status": "done", "parsedArgs": {"filepath": "src/auth.ts", "old_string": "token", "new_string": "authToken"},
+       "toolCall": {"id": "call_2", "type": "function", "function": {"name": "builtin_single_find_and_replace", "arguments": "{}"}}, "output": []}]},
+    {"message": {"role": "assistant", "content": "", "toolCalls": []},
+     "contextItems": [],
+     "toolCallStates": [{"toolCallId": "call_3", "status": "errored", "parsedArgs": {"filepath": "src/missing.ts"},
+       "toolCall": {"id": "call_3", "type": "function", "function": {"name": "builtin_edit_existing_file", "arguments": "{}"}}, "output": [{"name": "Error", "description": "", "content": "file not found"}]}]},
+    {"message": {"role": "assistant", "content": "", "toolCalls": []},
+     "contextItems": [],
+     "toolCallStates": [
+       {"toolCallId": "call_4", "status": "done", "parsedArgs": {"command": "npm test"},
+        "toolCall": {"id": "call_4", "type": "function", "function": {"name": "builtin_run_terminal_command", "arguments": "{\"command\":\"npm test\"}"}},
+        "output": [{"name": "Terminal", "description": "Terminal command output", "content": "PASS src/auth.test.ts", "status": "Command completed"}]},
+       {"toolCallId": "call_5", "status": "done", "parsedArgs": {"command": "make test-unknown", "waitForCompletion": false},
+        "toolCall": {"id": "call_5", "type": "function", "function": {"name": "builtin_run_terminal_command", "arguments": "{}"}},
+        "output": [{"name": "Terminal", "description": "Terminal command output", "content": "Command is running in the background...", "status": "Command is running in the background..."}]},
+       {"toolCallId": "call_6", "status": "done", "parsedArgs": {"command": "ls -la"},
+        "toolCall": {"id": "call_6", "type": "function", "function": {"name": "builtin_run_terminal_command", "arguments": "{}"}},
+        "output": [{"name": "Terminal", "description": "Terminal command output", "content": "total 0", "status": "Command completed"}]}
+     ]}
+  ]
+}

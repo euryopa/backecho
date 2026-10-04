@@ -1,0 +1,5 @@
+{"sessionId": "5b1f2c3d-0000-4000-8000-000000000003", "title": "other", "workspaceDirectory": "{{ELSEWHERE}}", "history": [
+  {"message": {"role": "assistant", "content": ""}, "contextItems": [],
+   "toolCallStates": [{"toolCallId": "e1", "status": "done", "parsedArgs": {"command": "make test-elsewhere"}, "toolCall": {"id": "e1", "type": "function", "function": {"name": "builtin_run_terminal_command", "arguments": "{}"}},
+     "output": [{"name": "Terminal", "description": "", "content": "boom", "status": "Command failed with exit code 2"}]}]}
+]}
