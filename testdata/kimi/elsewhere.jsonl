@@ -1,0 +1,4 @@
+{"type":"metadata","protocol_version":"1.1","created_at":1791100800000}
+{"type":"config.update","cwd":"{{ELSEWHERE}}","time":1791100800001}
+{"type":"context.append_message","message":{"role":"assistant","content":[],"toolCalls":[{"type":"function","id":"tool_e1","name":"Bash","arguments":"{\"command\":\"make test-elsewhere\"}"}]},"time":1791100800002}
+{"type":"context.append_message","message":{"role":"tool","content":[{"type":"text","text":"Command executed successfully."}],"toolCalls":[],"toolCallId":"tool_e1"},"time":1791100800003}

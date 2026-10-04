@@ -1,0 +1,3 @@
+{"working_dir":"{{ELSEWHERE}}","description":"other"}
+{"id":"m1","role":"assistant","created":1791122410,"content":[{"type":"toolRequest","id":"c1","toolCall":{"status":"success","value":{"name":"developer__shell","arguments":{"command":"make test-elsewhere"}}}}]}
+{"id":"m2","role":"user","created":1791122412,"content":[{"type":"toolResponse","id":"c1","toolResult":{"status":"success","value":{"content":[],"structuredContent":{"stdout":"","stderr":"","exit_code":0},"isError":false}}}]}

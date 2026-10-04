@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "updated_at": "2026-10-04T14:05:00.000Z",
+  "agent": "lead",
+  "sessionId": "1760000000000_abc12",
+  "origin": {"source": "cli", "mode": "user", "sessionId": "1760000000000_abc12"},
+  "messages": [
+    {"role": "user", "ts": 1791122400000, "content": [{"type": "text", "text": "fix the auth tests"}]},
+    {"role": "assistant", "ts": 1791122405000, "content": [
+      {"type": "tool_use", "id": "toolu_01", "name": "run_commands", "input": {"commands": ["npm test"]}}
+    ]},
+    {"role": "user", "ts": 1791122430000, "content": [
+      {"type": "tool_result", "tool_use_id": "toolu_01", "name": "run_commands", "content": [
+        {"query": "npm test", "result": "[Command exited with code 1]\nFAIL src/auth.test.ts\nAuthorization: Bearer SECRETTOKEN123 rejected", "error": "Command exited with code 1", "success": false, "duration": 2400}
+      ]}
+    ]},
+    {"role": "assistant", "ts": 1791122460000, "content": [
+      {"type": "tool_use", "id": "toolu_02", "name": "editor", "input": {"path": "{{ROOT}}/src/auth.ts", "old_text": "token", "new_text": "authToken"}}
+    ]},
+    {"role": "user", "ts": 1791122461000, "content": [
+      {"type": "tool_result", "tool_use_id": "toolu_02", "name": "editor", "content": "{\"query\":\"edit:{{ROOT}}/src/auth.ts\",\"result\":\"Edited file\",\"success\":true}"}
+    ]},
+    {"role": "assistant", "ts": 1791122470000, "content": [
+      {"type": "tool_use", "id": "toolu_03", "name": "editor", "input": {"path": "{{ROOT}}/src/missing.ts", "old_text": "x", "new_text": "y"}}
+    ]},
+    {"role": "user", "ts": 1791122471000, "content": [
+      {"type": "tool_result", "tool_use_id": "toolu_03", "name": "editor", "content": "{\"query\":\"edit:{{ROOT}}/src/missing.ts\",\"result\":\"\",\"error\":\"Editor operation failed: file not found\",\"success\":false}"}
+    ]},
+    {"role": "assistant", "ts": 1791122520000, "content": [
+      {"type": "tool_use", "id": "toolu_04", "name": "run_commands", "input": {"commands": ["npm test", "make test-unknown", "ls -la"]}}
+    ]},
+    {"role": "user", "ts": 1791122560000, "content": [
+      {"type": "tool_result", "tool_use_id": "toolu_04", "name": "run_commands", "content": [
+        {"query": "npm test", "result": "PASS src/auth.test.ts\nTests: 4 passed", "success": true},
+        {"query": "make test-unknown", "result": "[Command is still running. Output will continue in /tmp/cline-command-x/output.log]\nbuilding...", "success": true},
+        {"query": "ls -la", "result": "total 0", "success": true}
+      ]}
+    ]}
+  ]
+}

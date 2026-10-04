@@ -1,0 +1,14 @@
+{
+  "v": 3,
+  "id": "T-7c1e5f2a-0002-4b7e-9d2c-000000000002",
+  "created": 1791126000000,
+  "env": {"initial": {"trees": [{"uri": "file://{{ELSEWHERE}}"}]}},
+  "messages": [
+    {"role": "assistant", "messageId": 0, "content": [
+      {"type": "tool_use", "id": "toolu_11", "name": "Bash", "complete": true, "input": {"cmd": "make test-elsewhere"}}
+    ]},
+    {"role": "user", "messageId": 1, "content": [
+      {"type": "tool_result", "toolUseID": "toolu_11", "run": {"status": "done", "result": {"output": "ok", "exitCode": 0}}}
+    ]}
+  ]
+}

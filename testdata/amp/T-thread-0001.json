@@ -1,0 +1,45 @@
+{
+  "v": 42,
+  "id": "T-7c1e5f2a-0001-4b7e-9d2c-000000000001",
+  "created": 1791122400000,
+  "title": "Fix failing auth tests",
+  "env": {"initial": {"trees": [{"displayName": "app", "uri": "{{ROOT_URI}}"}]}},
+  "messages": [
+    {"role": "user", "messageId": 0, "content": [{"type": "text", "text": "tests are failing, fix them"}], "meta": {"sentAt": 1791122401000}},
+    {"role": "assistant", "messageId": 1, "content": [
+      {"type": "tool_use", "id": "toolu_01", "name": "Bash", "complete": true, "input": {"cmd": "go test ./...", "cwd": "{{ROOT}}"}}
+    ], "usage": {"timestamp": "2026-10-04T14:00:05.000Z"}},
+    {"role": "user", "messageId": 2, "content": [
+      {"type": "tool_result", "toolUseID": "toolu_01", "run": {"status": "done", "result": {"output": "--- FAIL: TestAuth (0.00s)\n    auth_test.go:12: sent Authorization: Bearer SECRETTOKEN123", "exitCode": 1}}}
+    ], "meta": {"sentAt": 1791122420000}},
+    {"role": "assistant", "messageId": 3, "content": [
+      {"type": "text", "text": "The header builder is wrong."},
+      {"type": "tool_use", "id": "toolu_02", "name": "edit_file", "complete": true, "input": {"path": "{{ROOT}}/internal/auth/auth.go", "old_str": "a", "new_str": "b"}}
+    ], "usage": {"timestamp": "2026-10-04T14:01:00.000Z"}},
+    {"role": "user", "messageId": 4, "content": [
+      {"type": "tool_result", "toolUseID": "toolu_02", "run": {"status": "done", "result": {"diff": "-a\n+b"}}}
+    ], "meta": {"sentAt": 1791122461000}},
+    {"role": "assistant", "messageId": 5, "content": [
+      {"type": "tool_use", "id": "toolu_03", "name": "edit_file", "complete": true, "input": {"path": "{{ROOT}}/internal/auth/missing.go", "old_str": "x", "new_str": "y"}}
+    ], "usage": {"timestamp": "2026-10-04T14:01:30.000Z"}},
+    {"role": "user", "messageId": 6, "content": [
+      {"type": "tool_result", "toolUseID": "toolu_03", "run": {"status": "error", "error": {"message": "file not found"}}}
+    ], "meta": {"sentAt": 1791122491000}},
+    {"role": "assistant", "messageId": 7, "content": [
+      {"type": "tool_use", "id": "toolu_04", "name": "Bash", "complete": true, "input": {"cmd": "go test ./...", "cwd": "{{ROOT}}"}}
+    ], "usage": {"timestamp": "2026-10-04T14:02:00.000Z"}},
+    {"role": "user", "messageId": 8, "content": [
+      {"type": "tool_result", "toolUseID": "toolu_04", "run": {"status": "done", "result": {"output": "ok  \texample.com/app/internal/auth\t0.012s", "exitCode": 0}}}
+    ], "meta": {"sentAt": 1791122535000}},
+    {"role": "assistant", "messageId": 9, "content": [
+      {"type": "tool_use", "id": "toolu_05", "name": "Bash", "complete": true, "input": {"cmd": "make test-unknown", "cwd": "{{ROOT}}"}},
+      {"type": "tool_use", "id": "toolu_06", "name": "Bash", "complete": true, "input": {"cmd": "ls -la", "cwd": "{{ROOT}}"}},
+      {"type": "tool_use", "id": "toolu_07", "name": "Bash", "complete": true, "input": {"cmd": "npm run build", "cwd": "{{ROOT}}"}}
+    ], "usage": {"timestamp": "2026-10-04T14:03:00.000Z"}},
+    {"role": "user", "messageId": 10, "content": [
+      {"type": "tool_result", "toolUseID": "toolu_05", "run": {"status": "done", "result": {"output": "building..."}}},
+      {"type": "tool_result", "toolUseID": "toolu_06", "run": {"status": "done", "result": {"output": "total 8", "exitCode": 0}}},
+      {"type": "tool_result", "toolUseID": "toolu_07", "run": {"status": "cancelled", "result": {"output": "", "exitCode": 130}}}
+    ], "meta": {"sentAt": 1791122590000}}
+  ]
+}
