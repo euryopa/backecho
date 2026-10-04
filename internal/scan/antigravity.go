@@ -116,20 +116,20 @@ func (a Antigravity) Parse(src Source, repoRoot string, since time.Time) ([]mode
 			continue
 		}
 		for _, tc := range list(m, "tool_calls") {
-			args := args(get(tc, "args"))
+			in := args(get(tc, "args"))
 			ev := model.Event{Agent: a.ID(), Session: session, TS: ts}
 			switch toolKind(str(tc, "name"), antigravityTools) {
 			case model.KindShell:
 				ev.Kind = model.KindShell
-				ev.Command = strings.TrimSpace(str(args, "CommandLine"))
-				ev.Cwd = str(args, "Cwd")
+				ev.Command = strings.TrimSpace(str(in, "CommandLine"))
+				ev.Cwd = str(in, "Cwd")
 				if ev.Command == "" {
 					continue
 				}
 				pending = append(pending, b.add("", ev))
 			case model.KindEdit:
 				ev.Kind = model.KindEdit
-				ev.Path = str(args, "TargetFile")
+				ev.Path = str(in, "TargetFile")
 				if ev.Path == "" {
 					continue
 				}
