@@ -74,9 +74,6 @@ func (a Aider) Parse(src Source, repoRoot string, since time.Time) ([]model.Even
 			stamp := strings.TrimSpace(strings.TrimPrefix(line, aiderStart))
 			ts, _ := time.ParseInLocation("2006-01-02 15:04:05", stamp, time.Local)
 			base = model.Event{Agent: a.ID(), Session: src.Path + "#" + stamp, TS: ts.UTC(), Cwd: cwd}
-			if ts.IsZero() {
-				base.TS = time.Time{}
-			}
 			continue
 		}
 		if !recognized {

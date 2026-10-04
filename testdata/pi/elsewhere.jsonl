@@ -1,0 +1,3 @@
+{"type":"session","version":3,"id":"a1b2c3d4-0000-4000-8000-000000000002","timestamp":"2026-10-04T15:00:00.000Z","cwd":"{{ELSEWHERE}}"}
+{"type":"message","id":"f1","parentId":null,"timestamp":"2026-10-04T15:00:05.000Z","message":{"role":"assistant","content":[{"type":"toolCall","id":"call_11","name":"bash","arguments":{"command":"make test-elsewhere"}}],"stopReason":"toolUse"}}
+{"type":"message","id":"f2","parentId":"f1","timestamp":"2026-10-04T15:00:09.000Z","message":{"role":"toolResult","toolCallId":"call_11","toolName":"bash","content":[{"type":"text","text":"ok"}],"isError":false}}
