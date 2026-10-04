@@ -126,7 +126,7 @@ func (c Cline) Parse(src Source, repoRoot string, since time.Time) ([]model.Even
 					continue
 				}
 				isErr, _ := boolOf(blk, "is_error")
-				results := clineResults(blk["content"])
+				results := clineResults(get(blk, "content"))
 				if es[0].ev.Kind == model.KindEdit {
 					failed := isErr
 					for _, r := range results {
